@@ -1,13 +1,15 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABCMeta, abstractmethod, ABC
 from typing import List, Dict
 
 from django.db.models import Q
 
+from REMApp.Repositories import ClientRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.Client_dto import CreateClientDto, UpdateClientDto, ListClientDto, DeleteClientDto, FindClientDto, ClientDetailsDto
+from REMApp.dto.ClientDto import CreateClientDto, UpdateClientDto, ListClientDto, DeleteClientDto, FindClientDto, \
+    ClientDetailsDto
 
 
-class ClientRepository(metaclass=ABCMeta):
+class ClientManagementService(metaclass=ABCMeta):
     @abstractmethod
     def get_all_for_select_list(self) -> List[SelectOptionDto]:
         """View Options"""
@@ -42,3 +44,25 @@ class ClientRepository(metaclass=ABCMeta):
     def get(self, client_id: int):
         """Gets clients details"""
         raise NotImplementedError
+
+
+class DefaultClientManagementService(ClientManagementService, ABC):
+    repository: ClientRepository = None
+
+    def __init__(self, repository: ClientRepository):
+        self.repository = repository
+
+    def get_all_for_select_list(self) -> List[SelectOptionDto]:
+        return self.repository.get_all_for_select_list()
+
+    def create(self, model: CreateClientDto):
+        return self.repository.create(model)
+
+    def update(self, id: int, model: UpdateClientDto):
+        return self.repository.update(id, model)
+
+    def list(self) -> List[ListClientDto]:
+        return self.repository.list()
+
+    def get(self, client_id: int) -> ClientDetailsDto:
+        return self.repository.get(client_id)
