@@ -1,11 +1,11 @@
 from abc import ABCMeta, abstractmethod, ABC
-from typing import List, Dict
+from typing import List  # Dict#
 
-from django.db.models import Q
+# from django.db.models import Q#
 
 from REMApp.Repositories import CommentRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.CommentDto import MakeCommentDto, ListCommentDto, DeleteCommentDto
+from REMApp.dto.CommentDto import MakeCommentDto, ListCommentDto
 
 
 class CommentManagementService(metaclass=ABCMeta):
@@ -17,11 +17,6 @@ class CommentManagementService(metaclass=ABCMeta):
     @abstractmethod
     def make(self, model: MakeCommentDto):
         """Makes a comment"""
-        raise NotImplementedError
-
-    @abstractmethod
-    def delete(self, comment_id: int, model: DeleteCommentDto):
-        """Deletes a comment"""
         raise NotImplementedError
 
     @abstractmethod
@@ -41,9 +36,6 @@ class DefaultCommentManagementService(CommentManagementService, ABC):
 
     def make(self, model: MakeCommentDto):
         return self.repository.make()
-
-    def delete(self, comment_id: int, model: DeleteCommentDto):
-        return self.repository.delete()
 
     def list(self) -> List[ListCommentDto]:
         return self.repository.list()

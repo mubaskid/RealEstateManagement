@@ -1,12 +1,11 @@
 from abc import ABCMeta, abstractmethod, ABC
-from typing import List, Dict
+from typing import List  # Dict#
 
-from django.db.models import Q
+# from django.db.models import Q#
 
 from REMApp.Repositories import ClientRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.ClientDto import CreateClientDto, UpdateClientDto, ListClientDto, DeleteClientDto, FindClientDto, \
-    ClientDetailsDto
+from REMApp.dto.ClientDto import CreateClientDto, UpdateClientDto, ListClientDto, ClientDetailsDto
 
 
 class ClientManagementService(metaclass=ABCMeta):
@@ -26,22 +25,12 @@ class ClientManagementService(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def update(self, client_id: int, model: UpdateClientDto):
+    def update(self, Client_id: int, model: UpdateClientDto):
         """Updates Clients details"""
         raise NotImplementedError
 
     @abstractmethod
-    def delete(self, models: DeleteClientDto):
-        """Deletes Client"""
-        raise NotImplementedError
-
-    @abstractmethod
-    def find(self, models: FindClientDto):
-        """Looks for a particular Client"""
-        raise NotImplementedError
-
-    @abstractmethod
-    def get(self, client_id: int):
+    def get(self, Client_id: int):
         """Gets clients details"""
         raise NotImplementedError
 
@@ -58,11 +47,11 @@ class DefaultClientManagementService(ClientManagementService, ABC):
     def create(self, model: CreateClientDto):
         return self.repository.create(model)
 
-    def update(self, id: int, model: UpdateClientDto):
+    def update(self, Client_id: int, model: UpdateClientDto):
         return self.repository.update(id, model)
 
     def list(self) -> List[ListClientDto]:
         return self.repository.list()
 
-    def get(self, client_id: int) -> ClientDetailsDto:
-        return self.repository.get(client_id)
+    def get(self, Client_id: int) -> ClientDetailsDto:
+        return self.repository.get(Client_id)

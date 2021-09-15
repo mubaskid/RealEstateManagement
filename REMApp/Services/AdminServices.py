@@ -4,8 +4,7 @@ from typing import List, Dict
 from django.db.models import Q
 
 from REMApp.Repositories import AdminRepository
-from REMApp.Repositories.AdminRepository import CreateAdminDto, UpdateAdminDto, ListAdminDto, DeleteAdminDto, \
-    AdminDetailsDto
+from REMApp.Repositories.AdminRepository import CreateAdminDto, UpdateAdminDto, ListAdminDto, AdminDetailsDto
 from REMApp.dto.CommonDto import SelectOptionDto
 
 
@@ -21,7 +20,7 @@ class AdminManagementService(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def edit(self, Admin_id: int, model: UpdateAdminDto):
+    def update(self, Admin_id: str, model: UpdateAdminDto):
         """Update Admin object"""
         raise NotImplementedError
 
@@ -31,13 +30,8 @@ class AdminManagementService(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def details(self, admin_id: int) -> AdminDetailsDto:
+    def details(self, admin_id: str, model: AdminDetailsDto):
         """Return Admin Details"""
-        raise NotImplementedError
-
-    @abstractmethod
-    def delete(self, admin_id: int):
-        """"Deletes Admin Details"""
         raise NotImplementedError
 
     @abstractmethod
@@ -58,14 +52,11 @@ class DefaultAdminManagementService(AdminManagementService, ABC):
     def create(self, model: CreateAdminDto):
         return self.repository.create(model)
 
-    def update(self, id: int, model: UpdateAdminDto):
+    def update(self, Admin_id: str, model: UpdateAdminDto):
         return self.repository.update(id, model)
 
     def list(self) -> List[ListAdminDto]:
         return self.repository.list()
 
-    def delete(self, models: DeleteAdminDto):
-        return self.repository.delete()
-
-    def get(self, admin_id: int) -> AdminDetailsDto:
+    def get(self, admin_id: str) -> AdminDetailsDto:
         return self.repository.get(admin_id)

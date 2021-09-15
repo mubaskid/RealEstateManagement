@@ -1,14 +1,14 @@
 from abc import ABCMeta, abstractmethod, ABC
 from typing import List
 
-from django.db.models import Q
+# from django.db.models import Q#
 
 from REMApp.Repositories import NotificationRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.NotificationDto import CreateNotificationDto, ListNotificationsDto, ClearNotificationDto
+from REMApp.dto.NotificationDto import CreateNotificationDto, ListNotificationsDto
 
 
-class NotificationManagementService():
+class NotificationManagementService(metaclass=ABCMeta):
     @abstractmethod
     def get_all_for_select_list(self) -> List[SelectOptionDto]:
         """Selects an option"""
@@ -22,11 +22,6 @@ class NotificationManagementService():
     @abstractmethod
     def list(self) -> List[ListNotificationsDto]:
         """Lists all notification"""
-        raise NotImplementedError
-
-    @abstractmethod
-    def clear(self, model: ClearNotificationDto):
-        """Clears notifications"""
         raise NotImplementedError
 
 
@@ -44,6 +39,3 @@ class DefaultNotificationManagementService(NotificationManagementService, ABC):
 
     def list(self) -> List[ListNotificationsDto]:
         return self.repository.list()
-
-    def clear(self, model: ClearNotificationDto):
-        return self.repository.clear()

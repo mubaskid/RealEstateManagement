@@ -1,12 +1,11 @@
 from abc import ABCMeta, abstractmethod, ABC
-from typing import List, Dict
+from typing import List  # Dict#
 
-from django.db.models import Q
+# from django.db.models import Q#
 
 from REMApp.Repositories import AppointmentRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.AppointmentDto import BookAppointmentDto, ListAppointmentDto, DeleteAppointmentDto, \
-    FindAppointmentDto
+from REMApp.dto.AppointmentDto import BookAppointmentDto, ListAppointmentDto, UpdateAppointmentDto
 
 
 class AppointmentManagementService(metaclass=ABCMeta):
@@ -26,12 +25,8 @@ class AppointmentManagementService(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def delete(self, model: DeleteAppointmentDto):
-        """Deletes appointment"""
-        raise NotImplementedError
-
-    def find(self, model: FindAppointmentDto):
-        """Searches for appointment"""
+    def update(self, model: UpdateAppointmentDto):
+        """updates Appointments"""
         raise NotImplementedError
 
     @abstractmethod
@@ -55,11 +50,8 @@ class DefaultAppointmentManagementService(AppointmentManagementService, ABC):
     def list(self) -> List[ListAppointmentDto]:
         return self.repository.list()
 
-    def delete(self, model: DeleteAppointmentDto):
-        return self.repository.delete()
-
-    def find(self, model: FindAppointmentDto):
-        return self.repository.find()
+    def update(self, model: UpdateAppointmentDto):
+        return self.repository.update()
 
     def get(self, client_id: int):
         return self.repository.get()

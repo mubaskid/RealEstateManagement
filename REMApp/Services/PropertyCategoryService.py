@@ -5,7 +5,7 @@ from django.db.models import Q
 
 from REMApp.Repositories import PropertyCategoryRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.PropertyTypeDto import CreatePropertyTypeDto, DeletePropertyTypeDto, \
+from REMApp.dto.PropertyCategoryDto import CreatePropertyTypeDto, DeletePropertyTypeDto, \
     UpdatePropertyTypeDto, ListPropertyTypeDto, FindPropertyTypeDto
 
 
