@@ -1,25 +1,19 @@
 class CreateAdminDto:
-    id: int
+    Admin_id: int
     Username: str
     email: str
-    User_first_name: str
-    User_last_name: str
+    first_name: str
+    last_name: str
     password: str
     contact: str
     address: str
 
 
 class UpdateAdminDto:
-    id: int
+    Admin_id: int
     email: str
-    User_first_name: str
-    User_last_name: str
-    contact: str
-
-
-class DeleteAdminDto:
-    Username: str
-    id: int
+    first_name: str
+    last_name: str
     contact: str
 
 
@@ -29,11 +23,11 @@ class ListAdminDto:
 
 
 class AdminDetailsDto:
-    id: str
+    Admin_id: str
     Username: str
     email: str
-    User_first_name: str
-    User_last_name: str
+    first_name: str
+    last_name: str
     password: str
     contact: str
     address: str

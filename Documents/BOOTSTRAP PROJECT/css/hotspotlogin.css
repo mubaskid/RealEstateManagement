@@ -1,0 +1,159 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+body{
+	font-family: 'Roboto', sans-serif;
+	background-image: url('img/bg.jpg');
+	background-repeat: repeat-x;
+}
+.main-section {
+	margin: 0 auto;
+	margin-top: 0px;
+	padding: 0;
+}
+.modal-content-account {
+	background-color: #fff;
+	padding: 0 5px;
+	border: 2px solid #ccc;
+	border: 2px solid rgba(0, 0, 0, .15);
+	border-radius: 10px;
+	-webkit-box-shadow: 6px 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 6px 6px 12px rgba(0, 0, 0, .5);
+}
+
+.modal-content {
+	background-color: #999999;
+	opacity: .8;
+	padding: 0 5px;
+	border: 2px solid #ccc;
+	border: 2px solid rgba(0, 0, 0, .15);
+	border-radius: 10px;
+	-webkit-box-shadow: 6px 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 6px 6px 12px rgba(0, 0, 0, .5);
+}
+
+.modal4detail-page {
+	background-color: #999999;
+	opacity: .8;
+	padding: 0 5px;
+	border: 2px solid #ccc;
+	border: 2px solid rgba(0, 0, 0, .15);
+	border-radius: 10px;
+	-webkit-box-shadow: 6px 6px 12px rgba(0, 0, 0, .5);
+	box-shadow: 6px 6px 12px rgba(0, 0, 0, .5);
+}
+ .forjumbo{
+	background-color: #999999;
+	opacity: .8;
+	padding: 0 45px;
+	border-radius: 10px;
+}
+.myborder{
+	background-color: #ffffff;
+	padding:4px 5px; 
+	margin-top:15px;
+	border: 1px solid #ccc;
+  	border: 1px solid rgba(0, 0, 0, .15);
+  	border-radius: 10px;
+  	-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+		  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+	border-top: 0;
+		
+	}
+	
+.user-img img{
+	height: 60px;
+	width: 300px;
+}
+.user-img {
+	margin-top: -70px;
+	margin-bottom: 30px;
+}
+.form-group {
+	margin-bottom: 10px;
+}
+.input-group {
+	margin-bottom: 10px;
+}
+.form-group input {
+	height: 42px;
+	border-radius: 5px;
+	border: #F3CECF;
+	font-size: 15px;
+	letter-spacing: 1px;
+	padding-left: 54px;
+}
+.form-group::before {
+	font-family: 'Font Awesome\ 5 Free';
+	content: "\f1fa";
+	position: absolute;
+	font-size: 18px;
+	left: 28px;
+	padding-top: 4px;
+	color: #555e60;
+}
+.form-group:last-of-type::before {
+	content: "\f023";
+}
+.form-input button {
+	width: 40%;
+	margin: 5px 0 25px;
+}
+.btn-success {
+	background-color: #1c6288;
+	font-size: 19px;
+	border-radius: 5px;
+	padding: 7px 14px;
+	border: 1px solid #daf1ff;
+}
+.btn-sucess:hover {
+	background-color: #13445e;
+	border: 1px solid #daf1ff;
+}
+.forgot {
+	padding: 5px 0 25px;
+}
+.forgot a {
+	color: #daf1ff;
+}
+.self {
+	font-size: 25px;
+	padding: 0 0 25px;
+	color: #ffffff;
+}
+.error {
+	padding: 0 0 25px;
+	color: #ff0000;
+	font-size: 14px;
+}
+.activated {
+	font-size: 14px;
+	color: #000000;
+	padding: 25 0 25px;
+}
+.jumbotron{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 17px;
+}
+.retypeemail{
+	margin-bottom: 10px;
+}
+.cont{
+	padding-bottom: 5px;
+}
+.footer{
+	position: fixed-bottom;
+	bottom: 0;
+}
+.sticky.is-sticky {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}

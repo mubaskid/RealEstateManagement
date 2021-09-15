@@ -3,7 +3,7 @@ from typing import List
 
 from django.db.models import Q
 
-from REMApp.Repositories import PropertyTypeRepository
+from REMApp.Repositories import PropertyCategoryRepository
 from REMApp.dto.CommonDto import SelectOptionDto
 from REMApp.dto.PropertyTypeDto import CreatePropertyTypeDto, DeletePropertyTypeDto, \
     UpdatePropertyTypeDto, ListPropertyTypeDto, FindPropertyTypeDto
@@ -42,9 +42,9 @@ class PropertyTypeManagementService(metaclass=ABCMeta):
 
 
 class DefaultPropertyTypeManagementService(PropertyTypeManagementService, ABC):
-    repository: PropertyTypeRepository = None
+    repository: PropertyCategoryRepository = None
 
-    def __init__(self, repository: PropertyTypeRepository):
+    def __init__(self, repository: PropertyCategoryRepository):
         self.repository = repository
 
     def get_all_for_select_list(self) -> List[SelectOptionDto]:
