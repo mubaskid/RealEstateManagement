@@ -12,7 +12,6 @@ class CreatePropertyDto:
 class UpdatePropertyDto:
     name: str
     property_code: str
-    id: int
     price: float
     description: str
     address: str

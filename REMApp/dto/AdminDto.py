@@ -2,8 +2,8 @@ class CreateAdminDto:
     Admin_id: int
     Username: str
     email: str
-    first_name: str
-    last_name: str
+    firstName: str
+    lastName: str
     password: str
     contact: str
     address: str
@@ -12,22 +12,24 @@ class CreateAdminDto:
 class UpdateAdminDto:
     Admin_id: int
     email: str
-    first_name: str
-    last_name: str
+    firstName: str
+    lastName: str
     contact: str
+    Username: str
+    password: str
 
 
 class ListAdminDto:
     email: str
-    username: str
+    Username: str
 
 
 class AdminDetailsDto:
     Admin_id: str
     Username: str
     email: str
-    first_name: str
-    last_name: str
+    firstName: str
+    lastName: str
     password: str
     contact: str
     address: str

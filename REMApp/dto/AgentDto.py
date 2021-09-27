@@ -2,8 +2,8 @@ class CreateAgentDto:
     Username: str
     password: str
     email: str
-    User_first_name: str
-    User_last_name: str
+    firstName: str
+    lastName: str
     address: str
     contact: str
     Agent_id: str
@@ -13,10 +13,13 @@ class UpdateAgentDto:
     Username: str
     email: str
     address: str
+    firstName: str
+    lastName: str
+    password: str
 
 
 class ListAgentDto:
-    id: int
+    Agent_id: str
     Username: str
 
 
@@ -24,8 +27,8 @@ class AgentDetailsDto:
     Username: str
     password: str
     email: str
-    User_first_name: str
-    User_last_name: str
+    firstName: str
+    lastName: str
     address: str
     contact: str
-    id: int
+    Agent_id: str

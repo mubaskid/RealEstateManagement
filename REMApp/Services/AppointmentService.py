@@ -5,7 +5,7 @@ from typing import List  # Dict#
 
 from REMApp.Repositories import AppointmentRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.AppointmentDto import BookAppointmentDto, ListAppointmentDto, UpdateAppointmentDto
+from REMApp.dto.AppointmentDto import BookAppointmentDto, ListAppointmentDto, UpdateAppointmentDto, ViewAppointmentDto
 
 
 class AppointmentManagementService(metaclass=ABCMeta):
@@ -29,8 +29,12 @@ class AppointmentManagementService(metaclass=ABCMeta):
         """updates Appointments"""
         raise NotImplementedError
 
+    def view(self, model: ViewAppointmentDto):
+        """views Appointment details"""
+        raise NotImplementedError
+
     @abstractmethod
-    def get(self, client_id: int):
+    def get(self, Client_id: str):
         """gets a single appointment"""
         raise NotImplementedError
 
@@ -53,5 +57,5 @@ class DefaultAppointmentManagementService(AppointmentManagementService, ABC):
     def update(self, model: UpdateAppointmentDto):
         return self.repository.update()
 
-    def get(self, client_id: int):
+    def get(self, Client_id: int):
         return self.repository.get()

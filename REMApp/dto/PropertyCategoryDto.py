@@ -1,19 +1,19 @@
-class CreatePropertyTypeDto:
+class CreatePropertyCategoryDto:
     name: str
     description: str
-    propertyTypeid: int
+    property_category_id: int
 
 
-class UpdatePropertyTypeDto:
+class UpdatePropertyCategoryDto:
     name: str
-    propertyTypeid: int
+    property_category_id: int
 
 
-class ListPropertyTypeDto:
-    propertyTypeid: int
+class ListPropertyCategoryDto:
+    property_category_id: int
     description: str
 
 
-class FindPropertyTypeDto:
-    propertyTypeid: int
+class PropertyCategoryDetailsDto:
+    property_category_id: int
     description: str

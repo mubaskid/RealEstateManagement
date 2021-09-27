@@ -1,6 +1,7 @@
 class CreateNotificationDto:
     name: str
     description: str
+    time: str
 
 
 class ListNotificationsDto:
@@ -10,3 +11,4 @@ class ListNotificationsDto:
 class GetNotificationDto:
     name: str
     description: str
+    time: str

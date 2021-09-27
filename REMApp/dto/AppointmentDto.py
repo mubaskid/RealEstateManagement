@@ -2,9 +2,10 @@ class BookAppointmentDto:
     appointment_description: str
     date: str
     time: str
-    client_id: int
-    admin_id: int
-    agent_id: int
+    Client_id: str
+    Admin_id: int
+    Agent_id: str
+    appointmentStatus: str
 
 
 class ListAppointmentDto:
@@ -12,7 +13,8 @@ class ListAppointmentDto:
     status: str
     time: None
     date: None
-    client_id: int
+    Client_id: int
+    appointmentStatus: str
 
 
 class UpdateAppointmentDto:
@@ -21,4 +23,8 @@ class UpdateAppointmentDto:
     time: str
 
 
-
+class ViewAppointmentDto:
+    appointment_description: str
+    date: str
+    time: str
+    appointmentStatus: str

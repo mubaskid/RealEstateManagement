@@ -1,12 +1,11 @@
 from abc import ABCMeta, abstractmethod, ABC
 from typing import List
 
-from django.db.models import Q
+# from django.db.models import Q
 
 from REMApp.Repositories import PropertyRepository
 from REMApp.dto.CommonDto import SelectOptionDto
-from REMApp.dto.PropertyDto import CreatePropertyDto, UpdatePropertyDto, FindPropertyDto, ListPropertyDto, \
-    DeletePropertyDto, PropertyDetailsDto
+from REMApp.dto.PropertyDto import CreatePropertyDto, UpdatePropertyDto, ListPropertyDto, PropertyDetailsDto
 
 
 class PropertyManagementService(metaclass=ABCMeta):
@@ -36,16 +35,6 @@ class PropertyManagementService(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def find(self, property_id: int, model: FindPropertyDto):
-        """Searches for a property"""
-        raise NotImplementedError
-
-    @abstractmethod
-    def delete(self, property_id: int, model: DeletePropertyDto):
-        """"Deletes Property Details"""
-        raise NotImplementedError
-
-    @abstractmethod
     def get(self, property_id: int):
         """Gets a single Property"""
         raise NotImplementedError
@@ -68,9 +57,6 @@ class DefaultPropertyManagementService(PropertyManagementService, ABC):
 
     def list(self) -> List[ListPropertyDto]:
         return self.repository.list()
-
-    def delete(self, property_id: int, model: DeletePropertyDto):
-        return self.repository.edit()
 
     def details(self, property_id: int, model: PropertyDetailsDto):
         return self.repository.details()

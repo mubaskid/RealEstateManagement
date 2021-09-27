@@ -38,7 +38,7 @@ class AgentManagementService(metaclass=ABCMeta):
         raise NotImplementedError
 
 
-class DefaultAdminManagementService(AgentManagementService, ABC):
+class DefaultAgentManagementService(AgentManagementService, ABC):
     repository: AgentRepository = None
 
     def __init__(self, repository: AgentRepository):

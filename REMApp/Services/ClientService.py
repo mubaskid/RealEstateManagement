@@ -25,12 +25,12 @@ class ClientManagementService(metaclass=ABCMeta):
         raise NotImplementedError
 
     @abstractmethod
-    def update(self, Client_id: int, model: UpdateClientDto):
+    def update(self, Client_id: str, model: UpdateClientDto):
         """Updates Clients details"""
         raise NotImplementedError
 
     @abstractmethod
-    def get(self, Client_id: int):
+    def get(self, Client_id: str):
         """Gets clients details"""
         raise NotImplementedError
 
@@ -47,11 +47,11 @@ class DefaultClientManagementService(ClientManagementService, ABC):
     def create(self, model: CreateClientDto):
         return self.repository.create(model)
 
-    def update(self, Client_id: int, model: UpdateClientDto):
-        return self.repository.update(id, model)
+    def update(self, Client_id: str, model: UpdateClientDto):
+        return self.repository.update(Client_id, model)
 
     def list(self) -> List[ListClientDto]:
         return self.repository.list()
 
-    def get(self, Client_id: int) -> ClientDetailsDto:
+    def get(self, Client_id: str) -> ClientDetailsDto:
         return self.repository.get(Client_id)
